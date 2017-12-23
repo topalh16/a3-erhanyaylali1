@@ -22,9 +22,14 @@ def htmlify(title,text):
                 <meta charset="utf-8" />
                 <title>%s</title>
                 <style>
+                    body{
+                        background-image: url("https://i.imgur.com/Nbi7bYI.jpg");
+                        text-align : left;
+                    }
+                    
                     select{
 				width:50%%;
-				text-align:center;
+				text-align:left;
 			}
                     table{
 				margin-left:15%%;
@@ -49,66 +54,85 @@ def htmlify(title,text):
 
 
 def index():
-	text = """
-	<form action="/gamename" method="POST">
-		<input type="textbox" name="gamename" placeholder="Search By Game Name"/>
-		<input type="submit" value="Search">
-	</form>
-	<form action="/gamelist" method="POST">
-                <select name="game">
-                    <option value="1">Tetris</option>
-                    <option value="2">Minecraft</option>
-                    <option value="3">Wii Sports</option>
-                    <option value="4">Grand Theft Auto 5</option>
-                    <option value="5">Mario Kart Wii</option>
-                    <option value="6">Wii Sports Resort</option>
-                    <option value="7">Super Mario Bros</option>
-                    <option value="8">The Elder Scrolls V: Skyrim</option>
-                    <option value="9">Diablo III</option>
-                    <option value="10">New Super Mario Bros.</option>
-                    <option value="11">Wii Play</option>
-                    <option value="12">Grand Theft Auto: San Andreas</option>
-                    <option value="13">Call of Duty: Modern Warfare 3</option>
-                    <option value="14">Call of Duty: Black Ops</option>
-                    <option value="15">Grand Theft Auto IV</option>
-                    <option value="16">Overwatch</option>
-                    <option value="17">Call of Duty: Black Ops II</option>
-                    <option value="18">Kinect Adventures</option>
-                    <option value="19">Nintendogs</option>
-                    <option value="20">Pokemon Red and Blue</option>
-                    <option value="21">Mario Kart DS</option>
-                    <option value="22">Pokemon Gold and Silver</option>
-                    <option value="23">Wii Fit</option>
-                    <option value="24">Call of Duty: Modern Warfare 2</option>
-                    <option value="25">Wii Fit Plus 2009</option>
-                    <option value="26">Super Mario World</option>
-                    <option value="27">Battlefield 3</option>
-                    <option value="28">Grand Theft Auto: Vice City</option>
-                    <option value="29">The Sims 2</option>
-                    <option value="30">Terraria</option>
-                    <option value="31">Brain Age</option>
-                    <option value="32">Call of Duty: Ghosts</option>
-                    <option value="33">Super Mario Land</option>
-                    <option value="34">Pokemon Diamond and Pearl</option>
-                    <option value="35">Grand Theft Auto III</option>
-                    <option value="36">Super Mario Bros. 3</option>
-                    <option value="37">Pokemon Ruby and Sapphire</option>
-                    <option value="38">Pokemon X and Y</option>
-                    <option value="39">Need for Speed: Most Wanted</option>
-                    <option value="40">The Sims</option>
-                    <option value="41">Call of Duty 4: Modern Warfare</option>
-                    <option value="42">Call of Duty: World at War</option>
-                    <option value="43">Pokemon Black and White</option>
-                    <option value="44">Lemmings</option>
-                    <option value="45">Red Dead Redemption</option>
-                    <option value="46">Gran Tourismo 3</option>
-                    <option value="47">Super Mario Land</option>
-                </select>
-                <input type="submit" value="Search">
-        </form>                    
-	<br/>
-	"""
-	return htmlify("My lovely website",text)
+    text = """
+		<br>
+		<br>
+		<br>
+		<form action="/gamename" method="POST">
+			<input type="textbox" name="gamename" placeholder="Search By Game Name"/>
+			<input type="submit" value="Search">
+		</form>
+		<br>
+		<br>
+		<form action="/gamelist" method="POST">
+	                <select name="game">
+	                    <option value="1">Tetris</option>
+	                    <option value="2">Minecraft</option>
+	                    <option value="3">Wii Sports</option>
+	                    <option value="4">Grand Theft Auto 5</option>
+	                    <option value="5">Mario Kart Wii</option>
+	                    <option value="6">Wii Sports Resort</option>
+	                    <option value="7">Super Mario Bros</option>
+	                    <option value="8">The Elder Scrolls V: Skyrim</option>
+	                    <option value="9">Diablo III</option>
+	                    <option value="10">New Super Mario Bros.</option>
+	                    <option value="11">Wii Play</option>
+	                    <option value="12">Grand Theft Auto: San Andreas</option>
+	                    <option value="13">Call of Duty: Modern Warfare 3</option>
+	                    <option value="14">Call of Duty: Black Ops</option>
+	                    <option value="15">Grand Theft Auto IV</option>
+	                    <option value="16">Overwatch</option>
+	                    <option value="17">Call of Duty: Black Ops II</option>
+	                    <option value="18">Kinect Adventures</option>
+	                    <option value="19">Nintendogs</option>
+	                    <option value="20">Pokemon Red and Blue</option>
+	                    <option value="21">Mario Kart DS</option>
+	                    <option value="22">Pokemon Gold and Silver</option>
+	                    <option value="23">Wii Fit</option>
+	                    <option value="24">Call of Duty: Modern Warfare 2</option>
+	                    <option value="25">Wii Fit Plus 2009</option>
+	                    <option value="26">Super Mario World</option>
+	                    <option value="27">Battlefield 3</option>
+	                    <option value="28">Grand Theft Auto: Vice City</option>
+	                    <option value="29">The Sims 2</option>
+	                    <option value="30">Terraria</option>
+	                    <option value="31">Brain Age</option>
+	                    <option value="32">Call of Duty: Ghosts</option>
+	                    <option value="33">Super Mario Land</option>
+	                    <option value="34">Pokemon Diamond and Pearl</option>
+	                    <option value="35">Grand Theft Auto III</option>
+	                    <option value="36">Super Mario Bros. 3</option>
+	                    <option value="37">Pokemon Ruby and Sapphire</option>
+	                    <option value="38">Pokemon X and Y</option>
+	                    <option value="39">Need for Speed: Most Wanted</option>
+	                    <option value="40">The Sims</option>
+	                    <option value="41">Call of Duty 4: Modern Warfare</option>
+	                    <option value="42">Call of Duty: World at War</option>
+	                    <option value="43">Pokemon Black and White</option>
+	                    <option value="44">Lemmings</option>
+	                    <option value="45">Red Dead Redemption</option>
+	                    <option value="46">Gran Tourismo 3</option>
+	                    <option value="47">Super Mario Land</option>
+	                </select>
+	                <input type="submit" value="Search">
+	    </form> 
+	    <br>
+	    <br>
+	    <form action="/table" method="POST">
+	            <input type="checkbox" name="table" value=""> All Games Table </input>
+	            <input type="submit" value="Show">
+	    </form>
+		<br>
+		<br>
+		<form action:"/sort" method:"POST">
+            <input type="radio" name="sort" value="1"> Sort By Sell </input>
+            <input type="radio" name="sort" value="2"> Sort By Year </input>
+            <input type="submit" value="Sort">
+    </form>
+	<br>
+	<br>
+		"""
+    return htmlify("My lovely website",text)
 
 def gamename():
     userinput = request.POST["gamename"]
@@ -132,109 +156,127 @@ def gamename():
 
 def gamelist():
     a = request.POST['game']
-    
     if a=="1":
-        text=" Information about the game you chase\n %s"%(contents[2])
+        text="Information about the game you have selected: %s"%(contents[2])
     elif a=="2":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[3])
+        text="Information about the game you have selected: %s"%(contents[3])
     elif a=="3":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[4])
+        text="Information about the game you have selected: %s"%(contents[4])
     elif a=="4":
-        text="Seçtiğiniz oyuna it bilgiler: %s"%(contents[5])
+        text="Information about the game you have selected: %s"%(contents[5])
     elif a=="5":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[6])
+        text="Information about the game you have selected: %s"%(contents[6])
     elif a=="6":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[7])
+        text="Information about the game you have selected: %s"%(contents[7])
     elif a=="7":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[8])
+        text="Information about the game you have selected: %s"%(contents[8])
     elif a=="8":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[9])
+        text="Information about the game you have selected: %s"%(contents[9])
     elif a=="9":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[10])
+        text="Information about the game you have selected: %s"%(contents[10])
     elif a=="10":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[11])
+        text="Information about the game you have selected: %s"%(contents[11])
     elif a=="11":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[12])
+        text="Information about the game you have selected: %s"%(contents[12])
     elif a=="12":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[13])
+        text="Information about the game you have selected: %s"%(contents[13])
     elif a=="13":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[14])
+        text="Information about the game you have selected: %s"%(contents[14])
     elif a=="14":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[15])
+        text="Information about the game you have selected: %s"%(contents[15])
     elif a=="15":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[16])
+        text="Information about the game you have selected: %s"%(contents[16])
     elif a=="16":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[17])
+        text="Information about the game you have selected: %s"%(contents[17])
     elif a=="17":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[18])
+        text="Information about the game you have selected: %s"%(contents[18])
     elif a=="18":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[19])
+        text="Information about the game you have selected: %s"%(contents[19])
     elif a=="19":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[20])
+        text="Information about the game you have selected: %s"%(contents[20])
     elif a=="20":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[21])
+        text="Information about the game you have selected: %s"%(contents[21])
     elif a=="21":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[22])
+        text="Information about the game you have selected: %s"%(contents[22])
     elif a=="22":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[23])
+        text="Information about the game you have selected: %s"%(contents[23])
     elif a=="23":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[24])
+        text="Information about the game you have selected: %s"%(contents[24])
     elif a=="24":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[25])
+        text="Information about the game you have selected: %s"%(contents[25])
     elif a=="25":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[26])
+        text="Information about the game you have selected: %s"%(contents[26])
     elif a=="26":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[27])
+        text="Information about the game you have selected: %s"%(contents[27])
     elif a=="27":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[28])
+        text="Information about the game you have selected: %s"%(contents[28])
     elif a=="28":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[29])
+        text="Information about the game you have selected: %s"%(contents[29])
     elif a=="29":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[30])
+        text="Information about the game you have selected: %s"%(contents[30])
     elif a=="30":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[31])
+        text="Information about the game you have selected: %s"%(contents[31])
     elif a=="31":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[32])
+        text="Information about the game you have selected: %s"%(contents[32])
     elif a=="32":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[33])
+        text="Information about the game you have selected: %s"%(contents[33])
     elif a=="33":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[34])
+        text="Information about the game you have selected: %s"%(contents[34])
     elif a=="34":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[35])
+        text="Information about the game you have selected: %s"%(contents[35])
     elif a=="35":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[36])
+        text="Information about the game you have selected: %s"%(contents[36])
     elif a=="36":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[37])
+        text="Information about the game you have selected: %s"%(contents[37])
     elif a=="37":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[38])
+        text="Information about the game you have selected: %s"%(contents[38])
     elif a=="38":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[39])
+        text="Information about the game you have selected: %s"%(contents[39])
     elif a=="39":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[40])
+        text="Information about the game you have selected: %s"%(contents[40])
     elif a=="40":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[41])
+        text="Information about the game you have selected: %s"%(contents[41])
     elif a=="41":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[42])
+        text="Information about the game you have selected: %s"%(contents[42])
     elif a=="42":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[43])
+        text="Information about the game you have selected: %s"%(contents[43])
     elif a=="43":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[44])
+        text="Information about the game you have selected: %s"%(contents[44])
     elif a=="44":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[45])
+        text="Information about the game you have selected: %s"%(contents[45])
     elif a=="45":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[46])
+        text="Information about the game you have selected: %s"%(contents[46])
     elif a=="46":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[47])
-    elif a=="47":
-        text="Seçtiğiniz oyuna ait bilgiler: %s"%(contents[48])
+        text="Information about the game you have selected: %s"%(contents[47])
+    elif a == "47":
+        text="Information about the game you have selected: %s"%(contents[48])
     return(text)
-    
 
 
-                    
+def table():
+    aren = ("<table border='2'>")
+    for i in range(0, 49):
+        aren += ("<tr>")
+        for j in range(0, 3):
+            aren += ("<td>" + contents[i][j] + "</td>")
+        aren += ("</tr>")
+
+    aren += ("</table>")
+    return htmlify("Title", aren)
+
+
+def sort ():
+    return htmlify("title", text)
+
+
+
+
 route('/', 'GET', index)
 route('/gamename', 'POST', gamename)
 route('/gamelist', 'POST', gamelist)
+route('/table', 'POST', table)
+route('/sort','POST', sort)
+
 
 #####################################################################
 ### Don't alter the below code.
