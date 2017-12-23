@@ -23,7 +23,7 @@ def htmlify(title,text):
                 <title>%s</title>
                 <style>
                     body{
-                        background-image: url("https://i.imgur.com/Nbi7bYI.jpg");
+                        background-image: url("http://wallpaper-gallery.net/images/background/background-24.jpg");
                         text-align : left;
                     }
                     
@@ -40,8 +40,12 @@ def htmlify(title,text):
 			}
                     th{
 				height : 50px;
-				background-color : #4CAF50;
+				background-color : #26c6da;
 				color : white;
+			}
+				    td{
+				background-color : #26c6da;
+				color : white;				    
 			}
                 </style>
             <body>
@@ -124,11 +128,11 @@ def index():
 	    </form>
 		<br>
 		<br>
-		<form action:"/sort" method:"POST">
-            <input type="radio" name="sort" value="1"> Sort By Sell </input>
-            <input type="radio" name="sort" value="2"> Sort By Year </input>
-            <input type="submit" value="Sort">
-    </form>
+		<form action="/tops" method="POST">
+            <input type="radio" name="tops" value="1">Top Sales</input>
+            <input type="radio" name="tops" value="2">Oldest Ganes</input>
+            <input type="submit" value="Show">
+        </form>
 	<br>
 	<br>
 		"""
@@ -265,8 +269,37 @@ def table():
     return htmlify("Title", aren)
 
 
-def sort ():
-    return htmlify("title", text)
+def tops ():
+    z=""
+    f=""
+    a=[]
+    if 'tops' in request.POST:
+        tops=request.POST['tops']
+    else:
+        tops=''
+    if tops == "1":
+        for i in range(1,49):
+            a += contents[i][2].split()
+        b=sorted(set(a))
+        for i in range(0,39):
+            c=b[i]
+            for i in range(1,49):
+                if contents[i][2] == c:
+                    z += """<tr><td>%(z)s</td><td>%(a)s</td><td>%(b)s</td></tr>""" % {"z": contents[i][0],  "a": contents[i][1], "b": contents[i][2]}
+        for j in range(0,2):
+            f += """<td>%s</td>""" %(contents[0][j])
+    if tops == "2":
+        for i in range(1,48):
+            a += contents[i][1].split()
+        b=sorted(set(a))
+        for i in range(0,21):
+            c=b[i]
+            for i in range(1,48):
+                if contents[i][1] == c:
+                    z += """<tr><td>%(z)s</td><td>%(a)s</td><td>%(b)s</td></tr>""" % {"z": contents[i][0],"a": contents[i][1],"b": contents[i][2]}
+        for j in range(0,2):
+            f += """<td>%s</td>""" %(contents[0][j])
+    return htmlify("",'<table border="2">'+'<tr class="p">'+f+'<tr>'+z+'</table>')
 
 
 
@@ -275,7 +308,7 @@ route('/', 'GET', index)
 route('/gamename', 'POST', gamename)
 route('/gamelist', 'POST', gamelist)
 route('/table', 'POST', table)
-route('/sort','POST', sort)
+route('/tops','POST', tops)
 
 
 #####################################################################
