@@ -23,11 +23,8 @@ def htmlify(title, text):
                 <title>%s</title>
                 <style>
                     body{
-<<<<<<< HEAD
-                        background-image: url("https://syedmahmoodkazmi.files.wordpress.com/2012/10/simple-lights-twitter-background.jpg");
-=======
-                        background-image: url("http://wallpaper-gallery.net/images/background/background-24.jpg");
->>>>>>> eacbb52714141040be7c2654e0f3c5e639a5ef45
+                        background-image: url("http://all4desktop.com/data_images/original/4236715-wallpaper-background.jpg");
+
                         text-align : left;
                     }
 
@@ -51,9 +48,7 @@ def htmlify(title, text):
 				background-color : #26c6da;
 				color : white;				    
 			}
-<<<<<<< HEAD
-			    fieldset
-            {
+			    fieldset{
             padding-top: 8px;
             padding-left: 20px;
             padding-bottom: 20px;
@@ -68,9 +63,7 @@ def htmlify(title, text):
             transition: .3s all;
   
             }
-=======
->>>>>>> eacbb52714141040be7c2654e0f3c5e639a5ef45
-                </style>
+            </style>
             <body>
             %s
             </body>
@@ -163,7 +156,6 @@ def index():
 		<br>
 		<br>
 		<form action="/tops" method="POST">
-<<<<<<< HEAD
         <fieldset><legend>Ranking</legend>
         <br>   
             <input type="radio" name="tops" value="1">Top Sales</input>
@@ -171,11 +163,6 @@ def index():
             <input type="submit" value="Show">
         <br>
         </fieldset>
-=======
-            <input type="radio" name="tops" value="1">Top Sales</input>
-            <input type="radio" name="tops" value="2">Oldest Ganes</input>
-            <input type="submit" value="Show">
->>>>>>> eacbb52714141040be7c2654e0f3c5e639a5ef45
         </form>
 	<br>
 	<br>
@@ -304,7 +291,7 @@ def gamelist():
 
 
 def table():
-<<<<<<< HEAD
+
     userinput = request.POST.getall("table")
     text ="""
         <table border='2'>
@@ -336,53 +323,7 @@ def table():
                     """%{"sales":x[2]}
         text += """    </tr>\n"""
     text += """ </table>\n"""
-=======
-    aren = ("<table border='2'>")
-    for i in range(0, 49):
-        aren += ("<tr>")
-        for j in range(0, 3):
-            aren += ("<td>" + contents[i][j] + "</td>")
-        aren += ("</tr>")
-
-    aren += ("</table>")
-    return htmlify("Title", aren)
-
-
-def tops ():
-    z=""
-    f=""
-    a=[]
-    if 'tops' in request.POST:
-        tops=request.POST['tops']
-    else:
-        tops=''
-    if tops == "1":
-        for i in range(1,49):
-            a += contents[i][2].split()
-        b=sorted(set(a))
-        for i in range(0,39):
-            c=b[i]
-            for i in range(1,49):
-                if contents[i][2] == c:
-                    z += """<tr><td>%(z)s</td><td>%(a)s</td><td>%(b)s</td></tr>""" % {"z": contents[i][0],  "a": contents[i][1], "b": contents[i][2]}
-        for j in range(0,2):
-            f += """<td>%s</td>""" %(contents[0][j])
-    if tops == "2":
-        for i in range(1,48):
-            a += contents[i][1].split()
-        b=sorted(set(a))
-        for i in range(0,21):
-            c=b[i]
-            for i in range(1,48):
-                if contents[i][1] == c:
-                    z += """<tr><td>%(z)s</td><td>%(a)s</td><td>%(b)s</td></tr>""" % {"z": contents[i][0],"a": contents[i][1],"b": contents[i][2]}
-        for j in range(0,2):
-            f += """<td>%s</td>""" %(contents[0][j])
-    return htmlify("",'<table border="2">'+'<tr class="p">'+f+'<tr>'+z+'</table>')
->>>>>>> eacbb52714141040be7c2654e0f3c5e639a5ef45
-
-    return htmlify("Title",text)
-
+    return htmlify("Title", text)
 def tops():
     z = ""
     f = ""
@@ -424,12 +365,8 @@ route('/', 'GET', index)
 route('/gamename', 'POST', gamename)
 route('/gamelist', 'POST', gamelist)
 route('/table', 'POST', table)
-<<<<<<< HEAD
 route('/tops', 'POST', tops)
-=======
-route('/tops','POST', tops)
 
->>>>>>> eacbb52714141040be7c2654e0f3c5e639a5ef45
 
 #####################################################################
 ### Don't alter the below code.
