@@ -36,7 +36,7 @@ def htmlify(title, text):
                 font-size: 18px;
              }
                     select{
-				width:50%%;
+				width:40%%;
 				text-align:left;
 			}
                     table{
@@ -62,7 +62,7 @@ def htmlify(title, text):
             margin-left:70%%;
             margin-right:10%%;
             color:white;
-            background:
+            
             }
             </style>
             <body>
@@ -138,7 +138,7 @@ def index():
 	    <br>
 	    <form action="/gamename" method="POST">
 		<fieldset><legend>Searh by Name</legend>
-		<br>	
+		<br>	    
 			<input type="textbox" name="gamename" placeholder="Search By Game Name"/>
 			<input type="submit" value="Search">
 		<br>
@@ -160,7 +160,7 @@ def index():
 		<form action="/tops" method="POST">
         <fieldset><legend>Ranking</legend>
         <br>   
-            <input type="radio" name="tops" value="2">Oldest Ganes</input>
+            <input type="radio" name="tops" value="2">Oldest Games</input>
             <input type="submit" value="Show">
         <br>
         </fieldset>
@@ -189,7 +189,7 @@ def gamename():
                             </tr>
                         """ % {"year": x[1], "gamename": x[0], "sales": x[2]}
     text += "</table>"
-    return htmlify("Title", text)
+    return htmlify("Game Name", text)
 
 
 def gamelist():
@@ -382,7 +382,7 @@ def gamelist():
         text = " Name: %s" \
                " Year: %s" \
                " Sales: %s" % (contents[48][0], contents[48][1], contents[48][2])
-    return htmlify ("Title", text)
+    return htmlify ("Game List", text)
 
 
 def table():
@@ -418,7 +418,7 @@ def table():
                     """%{"sales":x[2]}
         text += """    </tr>\n"""
     text += """ </table>\n"""
-    return htmlify("Title", text)
+    return htmlify("Game Table", text)
 
 def tops():
     z = ""
@@ -442,7 +442,7 @@ def tops():
                                                                                       "b": contents[i][2]}
         for j in range(0, 2):
             f += """<td>%s</td>""" % (contents[0][j])
-    return htmlify("", '<table border="2">' + '<tr class="p">' + f + '<tr>' + z + '</table>')
+    return htmlify("Rankings", '<table border="2">' + '<tr class="p">' + f + '<tr>' + z + '</table>')
 
 
 route('/', 'GET', index)
