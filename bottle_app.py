@@ -1,4 +1,3 @@
-
 #####################################################################
 ### Assignment skeleton
 ### You can alter the below code to make your own dynamic website.
@@ -14,7 +13,8 @@ with open("a2_input.csv") as input_file:
     for row in csv.reader(input_file):
         contents = contents + [row]
 
-def htmlify(title,text):
+
+def htmlify(title, text):
     page = """
         <!doctype html>
         <html lang="en">
@@ -23,10 +23,10 @@ def htmlify(title,text):
                 <title>%s</title>
                 <style>
                     body{
-                        background-image: url("https://i.imgur.com/Nbi7bYI.jpg");
+                        background-image: url("https://syedmahmoodkazmi.files.wordpress.com/2012/10/simple-lights-twitter-background.jpg");
                         text-align : left;
                     }
-                    
+
                     select{
 				width:50%%;
 				text-align:left;
@@ -36,20 +36,40 @@ def htmlify(title,text):
 				margin-right:15%%  ;
 				border : 2 px solid black;
 				width : 50%%;
-				
+
 			}
                     th{
 				height : 50px;
-				background-color : #4CAF50;
+				background-color : #26c6da;
 				color : white;
 			}
+				    td{
+				background-color : #26c6da;
+				color : white;				    
+			}
+			    fieldset
+            {
+            padding-top: 8px;
+            padding-left: 20px;
+            padding-bottom: 20px;
+            margin-left:70%%;
+            margin-right:10%%;
+            color:white;
+            background:
+            }
+            fieldset:hover
+            {
+            
+            transition: .3s all;
+  
+            }
                 </style>
             <body>
             %s
             </body>
         </html>
 
-    """ % (title,text)
+    """ % (title, text)
     return page
 
 
@@ -58,10 +78,6 @@ def index():
 		<br>
 		<br>
 		<br>
-		<form action="/gamename" method="POST">
-			<input type="textbox" name="gamename" placeholder="Search By Game Name"/>
-			<input type="submit" value="Search">
-		</form>
 		<br>
 		<br>
 		<form action="/gamelist" method="POST">
@@ -118,165 +134,239 @@ def index():
 	    </form> 
 	    <br>
 	    <br>
+	    <form action="/gamename" method="POST">
+		<fieldset><legend>Searh by Name</legend>
+		<br>	
+			<input type="textbox" name="gamename" placeholder="Search By Game Name"/>
+			<input type="submit" value="Search">
+		<br>
+		</fieldset>
+		</form>
+	    <br>
+	    <br>
 	    <form action="/table" method="POST">
-	            <input type="checkbox" name="table" value=""> All Games Table </input>
-	            <input type="submit" value="Show">
-	    </form>
+        <fieldset><legend>Year and Sales Statics</legend>
+        <br>
+                <input type="checkbox" name="table" value="1" >Year
+                <input type="checkbox" name="table" value="2">Sales
+                <input type="submit" value="Show All Column">
+        </br>
+        </fieldset>
+        </form>
 		<br>
 		<br>
-		<form action:"/sort" method:"POST">
-            <input type="radio" name="sort" value="1"> Sort By Sell </input>
-            <input type="radio" name="sort" value="2"> Sort By Year </input>
-            <input type="submit" value="Sort">
-    </form>
+		<form action="/tops" method="POST">
+        <fieldset><legend>Ranking</legend>
+        <br>   
+            <input type="radio" name="tops" value="1">Top Sales</input>
+            <input type="radio" name="tops" value="2">Oldest Ganes</input>
+            <input type="submit" value="Show">
+        <br>
+        </fieldset>
+        </form>
 	<br>
 	<br>
 		"""
-    return htmlify("My lovely website",text)
+    return htmlify("My lovely website", text)
+
 
 def gamename():
     userinput = request.POST["gamename"]
-    text ="""<table>
+    text = """<table>
                 <tr>
                     <th>Game Name </th>
                     <th>Year </th>
                     <th>Sales </th>
                 </tr>
         """
-    for x in contents :
-            if userinput in x[0]:
-                text += """<tr>
+    for x in contents:
+        if userinput in x[0]:
+            text += """<tr>
                                 <td>%(gamename)s</td>
                                 <td>%(year)s</td>
                                 <td>%(sales)s</td>
                             </tr>
-                        """ % {"year" : x[1], "gamename":x[0], "sales":x[2]}
+                        """ % {"year": x[1], "gamename": x[0], "sales": x[2]}
     text += "</table>"
     return htmlify("Title", text)
 
+
 def gamelist():
     a = request.POST['game']
-    if a=="1":
-        text="Information about the game you have selected: %s"%(contents[2])
-    elif a=="2":
-        text="Information about the game you have selected: %s"%(contents[3])
-    elif a=="3":
-        text="Information about the game you have selected: %s"%(contents[4])
-    elif a=="4":
-        text="Information about the game you have selected: %s"%(contents[5])
-    elif a=="5":
-        text="Information about the game you have selected: %s"%(contents[6])
-    elif a=="6":
-        text="Information about the game you have selected: %s"%(contents[7])
-    elif a=="7":
-        text="Information about the game you have selected: %s"%(contents[8])
-    elif a=="8":
-        text="Information about the game you have selected: %s"%(contents[9])
-    elif a=="9":
-        text="Information about the game you have selected: %s"%(contents[10])
-    elif a=="10":
-        text="Information about the game you have selected: %s"%(contents[11])
-    elif a=="11":
-        text="Information about the game you have selected: %s"%(contents[12])
-    elif a=="12":
-        text="Information about the game you have selected: %s"%(contents[13])
-    elif a=="13":
-        text="Information about the game you have selected: %s"%(contents[14])
-    elif a=="14":
-        text="Information about the game you have selected: %s"%(contents[15])
-    elif a=="15":
-        text="Information about the game you have selected: %s"%(contents[16])
-    elif a=="16":
-        text="Information about the game you have selected: %s"%(contents[17])
-    elif a=="17":
-        text="Information about the game you have selected: %s"%(contents[18])
-    elif a=="18":
-        text="Information about the game you have selected: %s"%(contents[19])
-    elif a=="19":
-        text="Information about the game you have selected: %s"%(contents[20])
-    elif a=="20":
-        text="Information about the game you have selected: %s"%(contents[21])
-    elif a=="21":
-        text="Information about the game you have selected: %s"%(contents[22])
-    elif a=="22":
-        text="Information about the game you have selected: %s"%(contents[23])
-    elif a=="23":
-        text="Information about the game you have selected: %s"%(contents[24])
-    elif a=="24":
-        text="Information about the game you have selected: %s"%(contents[25])
-    elif a=="25":
-        text="Information about the game you have selected: %s"%(contents[26])
-    elif a=="26":
-        text="Information about the game you have selected: %s"%(contents[27])
-    elif a=="27":
-        text="Information about the game you have selected: %s"%(contents[28])
-    elif a=="28":
-        text="Information about the game you have selected: %s"%(contents[29])
-    elif a=="29":
-        text="Information about the game you have selected: %s"%(contents[30])
-    elif a=="30":
-        text="Information about the game you have selected: %s"%(contents[31])
-    elif a=="31":
-        text="Information about the game you have selected: %s"%(contents[32])
-    elif a=="32":
-        text="Information about the game you have selected: %s"%(contents[33])
-    elif a=="33":
-        text="Information about the game you have selected: %s"%(contents[34])
-    elif a=="34":
-        text="Information about the game you have selected: %s"%(contents[35])
-    elif a=="35":
-        text="Information about the game you have selected: %s"%(contents[36])
-    elif a=="36":
-        text="Information about the game you have selected: %s"%(contents[37])
-    elif a=="37":
-        text="Information about the game you have selected: %s"%(contents[38])
-    elif a=="38":
-        text="Information about the game you have selected: %s"%(contents[39])
-    elif a=="39":
-        text="Information about the game you have selected: %s"%(contents[40])
-    elif a=="40":
-        text="Information about the game you have selected: %s"%(contents[41])
-    elif a=="41":
-        text="Information about the game you have selected: %s"%(contents[42])
-    elif a=="42":
-        text="Information about the game you have selected: %s"%(contents[43])
-    elif a=="43":
-        text="Information about the game you have selected: %s"%(contents[44])
-    elif a=="44":
-        text="Information about the game you have selected: %s"%(contents[45])
-    elif a=="45":
-        text="Information about the game you have selected: %s"%(contents[46])
-    elif a=="46":
-        text="Information about the game you have selected: %s"%(contents[47])
+    if a == "1":
+        text = "Information about the game you have selected: %s" % (contents[2])
+    elif a == "2":
+        text = "Information about the game you have selected: %s" % (contents[3])
+    elif a == "3":
+        text = "Information about the game you have selected: %s" % (contents[4])
+    elif a == "4":
+        text = "Information about the game you have selected: %s" % (contents[5])
+    elif a == "5":
+        text = "Information about the game you have selected: %s" % (contents[6])
+    elif a == "6":
+        text = "Information about the game you have selected: %s" % (contents[7])
+    elif a == "7":
+        text = "Information about the game you have selected: %s" % (contents[8])
+    elif a == "8":
+        text = "Information about the game you have selected: %s" % (contents[9])
+    elif a == "9":
+        text = "Information about the game you have selected: %s" % (contents[10])
+    elif a == "10":
+        text = "Information about the game you have selected: %s" % (contents[11])
+    elif a == "11":
+        text = "Information about the game you have selected: %s" % (contents[12])
+    elif a == "12":
+        text = "Information about the game you have selected: %s" % (contents[13])
+    elif a == "13":
+        text = "Information about the game you have selected: %s" % (contents[14])
+    elif a == "14":
+        text = "Information about the game you have selected: %s" % (contents[15])
+    elif a == "15":
+        text = "Information about the game you have selected: %s" % (contents[16])
+    elif a == "16":
+        text = "Information about the game you have selected: %s" % (contents[17])
+    elif a == "17":
+        text = "Information about the game you have selected: %s" % (contents[18])
+    elif a == "18":
+        text = "Information about the game you have selected: %s" % (contents[19])
+    elif a == "19":
+        text = "Information about the game you have selected: %s" % (contents[20])
+    elif a == "20":
+        text = "Information about the game you have selected: %s" % (contents[21])
+    elif a == "21":
+        text = "Information about the game you have selected: %s" % (contents[22])
+    elif a == "22":
+        text = "Information about the game you have selected: %s" % (contents[23])
+    elif a == "23":
+        text = "Information about the game you have selected: %s" % (contents[24])
+    elif a == "24":
+        text = "Information about the game you have selected: %s" % (contents[25])
+    elif a == "25":
+        text = "Information about the game you have selected: %s" % (contents[26])
+    elif a == "26":
+        text = "Information about the game you have selected: %s" % (contents[27])
+    elif a == "27":
+        text = "Information about the game you have selected: %s" % (contents[28])
+    elif a == "28":
+        text = "Information about the game you have selected: %s" % (contents[29])
+    elif a == "29":
+        text = "Information about the game you have selected: %s" % (contents[30])
+    elif a == "30":
+        text = "Information about the game you have selected: %s" % (contents[31])
+    elif a == "31":
+        text = "Information about the game you have selected: %s" % (contents[32])
+    elif a == "32":
+        text = "Information about the game you have selected: %s" % (contents[33])
+    elif a == "33":
+        text = "Information about the game you have selected: %s" % (contents[34])
+    elif a == "34":
+        text = "Information about the game you have selected: %s" % (contents[35])
+    elif a == "35":
+        text = "Information about the game you have selected: %s" % (contents[36])
+    elif a == "36":
+        text = "Information about the game you have selected: %s" % (contents[37])
+    elif a == "37":
+        text = "Information about the game you have selected: %s" % (contents[38])
+    elif a == "38":
+        text = "Information about the game you have selected: %s" % (contents[39])
+    elif a == "39":
+        text = "Information about the game you have selected: %s" % (contents[40])
+    elif a == "40":
+        text = "Information about the game you have selected: %s" % (contents[41])
+    elif a == "41":
+        text = "Information about the game you have selected: %s" % (contents[42])
+    elif a == "42":
+        text = "Information about the game you have selected: %s" % (contents[43])
+    elif a == "43":
+        text = "Information about the game you have selected: %s" % (contents[44])
+    elif a == "44":
+        text = "Information about the game you have selected: %s" % (contents[45])
+    elif a == "45":
+        text = "Information about the game you have selected: %s" % (contents[46])
+    elif a == "46":
+        text = "Information about the game you have selected: %s" % (contents[47])
     elif a == "47":
-        text="Information about the game you have selected: %s"%(contents[48])
-    return(text)
+        text = "Information about the game you have selected: %s" % (contents[48])
+    return (text)
 
 
 def table():
-    aren = ("<table border='2'>")
-    for i in range(0, 49):
-        aren += ("<tr>")
-        for j in range(0, 3):
-            aren += ("<td>" + contents[i][j] + "</td>")
-        aren += ("</tr>")
+    userinput = request.POST.getall("table")
+    text ="""
+        <table border='2'>
+            <tr>
+                <th>Game Name</th>"""
+    for inpt in userinput:
+        if  inpt == "1":
+            text += """
+                <th>Year</th>
+                """
+        elif inpt == "2":
+            text += """
+                <th>Sales</th>
+                """
+    text += """ </tr>\n"""
+    for x in contents:
+        if x[0] == "Best Selling Games Ever":
+                    continue
+        text += """<tr>
+                    <td>%(gamename)s</td>"""%{"gamename":x[0]}
+        for inpt in userinput:
+            if inpt=="1":
+                text += """
+                        <td>%(year)s</td>
+                    """%{"year":x[1]}
+            elif inpt=="2":
+                text += """
+                        <td>%(sales)s</td>
+                    """%{"sales":x[2]}
+        text += """    </tr>\n"""
+    text += """ </table>\n"""
 
-    aren += ("</table>")
-    return htmlify("Title", aren)
+    return htmlify("Title",text)
 
-
-def sort ():
-    return htmlify("title", text)
-
-
+def tops():
+    z = ""
+    f = ""
+    a = []
+    if 'tops' in request.POST:
+        tops = request.POST['tops']
+    else:
+        tops = ''
+    if tops == "1":
+        for i in range(1, 49):
+            a += contents[i][2].split()
+        b = sorted(set(a))
+        for i in range(0, 39):
+            c = b[i]
+            for i in range(1, 49):
+                if contents[i][2] == c:
+                    z += """<tr><td>%(z)s</td><td>%(a)s</td><td>%(b)s</td></tr>""" % {"z": contents[i][0],
+                                                                                      "a": contents[i][1],
+                                                                                      "b": contents[i][2]}
+        for j in range(0, 2):
+            f += """<td>%s</td>""" % (contents[0][j])
+    if tops == "2":
+        for i in range(1, 48):
+            a += contents[i][1].split()
+        b = sorted(set(a))
+        for i in range(0, 21):
+            c = b[i]
+            for i in range(1, 48):
+                if contents[i][1] == c:
+                    z += """<tr><td>%(z)s</td><td>%(a)s</td><td>%(b)s</td></tr>""" % {"z": contents[i][0],
+                                                                                      "a": contents[i][1],
+                                                                                      "b": contents[i][2]}
+        for j in range(0, 2):
+            f += """<td>%s</td>""" % (contents[0][j])
+    return htmlify("", '<table border="2">' + '<tr class="p">' + f + '<tr>' + z + '</table>')
 
 
 route('/', 'GET', index)
 route('/gamename', 'POST', gamename)
 route('/gamelist', 'POST', gamelist)
 route('/table', 'POST', table)
-route('/sort','POST', sort)
-
+route('/tops', 'POST', tops)
 
 #####################################################################
 ### Don't alter the below code.
@@ -290,5 +380,5 @@ debug(True)
 app = default_app()
 # The below code is necessary for running this bottle app standalone on your computer.
 if __name__ == "__main__":
-  run()
+    run()
 
