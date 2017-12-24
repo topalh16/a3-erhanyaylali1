@@ -1,4 +1,5 @@
 #####################################################################
+#####################################################################
 ### Assignment skeleton
 ### You can alter the below code to make your own dynamic website.
 ### The landing page for assignment 3 should be at /
@@ -27,7 +28,13 @@ def htmlify(title, text):
 
                         text-align : left;
                     }
-
+                    p{
+                text-align:left;
+                color: #254117;
+                font: New Times Roman;
+                margin-left:2%%;
+                font-size: 18px;
+             }
                     select{
 				width:50%%;
 				text-align:left;
@@ -57,14 +64,9 @@ def htmlify(title, text):
             color:white;
             background:
             }
-            fieldset:hover
-            {
-            
-            transition: .3s all;
-  
-            }
             </style>
             <body>
+            <p>Best Selling Games designed by Erhan YAYLALI</p>
             %s
             </body>
         </html>
@@ -158,7 +160,6 @@ def index():
 		<form action="/tops" method="POST">
         <fieldset><legend>Ranking</legend>
         <br>   
-            <input type="radio" name="tops" value="1">Top Sales</input>
             <input type="radio" name="tops" value="2">Oldest Ganes</input>
             <input type="submit" value="Show">
         <br>
@@ -172,7 +173,7 @@ def index():
 
 def gamename():
     userinput = request.POST["gamename"]
-    text = """<table>
+    text = """<table border='2'>
                 <tr>
                     <th>Game Name </th>
                     <th>Year </th>
@@ -194,100 +195,194 @@ def gamename():
 def gamelist():
     a = request.POST['game']
     if a == "1":
-        text = "Information about the game you have selected: %s" % (contents[2])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s"%(contents[2][0],contents[2][1],contents[2][2])
     elif a == "2":
-        text = "Information about the game you have selected: %s" % (contents[3])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[3][0], contents[3][1], contents[3][2])
     elif a == "3":
-        text = "Information about the game you have selected: %s" % (contents[4])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[4][0], contents[4][1], contents[4][2])
     elif a == "4":
-        text = "Information about the game you have selected: %s" % (contents[5])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[5][0], contents[5][1], contents[5][2])
     elif a == "5":
-        text = "Information about the game you have selected: %s" % (contents[6])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[6][0], contents[6][1], contents[6][2])
     elif a == "6":
-        text = "Information about the game you have selected: %s" % (contents[7])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[7][0], contents[7][1], contents[7][2])
     elif a == "7":
-        text = "Information about the game you have selected: %s" % (contents[8])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[8][0], contents[8][1], contents[8][2])
     elif a == "8":
-        text = "Information about the game you have selected: %s" % (contents[9])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[9][0], contents[9][1], contents[9][2])
     elif a == "9":
-        text = "Information about the game you have selected: %s" % (contents[10])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[10][0], contents[10][1], contents[10][2])
     elif a == "10":
-        text = "Information about the game you have selected: %s" % (contents[11])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[11][0], contents[11][1], contents[11][2])
     elif a == "11":
-        text = "Information about the game you have selected: %s" % (contents[12])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[12][0], contents[12][1], contents[12][2])
     elif a == "12":
-        text = "Information about the game you have selected: %s" % (contents[13])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[13][0], contents[13][1], contents[13][2])
     elif a == "13":
-        text = "Information about the game you have selected: %s" % (contents[14])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[14][0], contents[14][1], contents[14][2])
     elif a == "14":
-        text = "Information about the game you have selected: %s" % (contents[15])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[15][0], contents[15][1], contents[15][2])
     elif a == "15":
-        text = "Information about the game you have selected: %s" % (contents[16])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[16][0], contents[16][1], contents[16][2])
     elif a == "16":
-        text = "Information about the game you have selected: %s" % (contents[17])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[17][0], contents[17][1], contents[17][2])
     elif a == "17":
-        text = "Information about the game you have selected: %s" % (contents[18])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[18][0], contents[18][1], contents[18][2])
     elif a == "18":
-        text = "Information about the game you have selected: %s" % (contents[19])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[19][0], contents[19][1], contents[19][2])
     elif a == "19":
-        text = "Information about the game you have selected: %s" % (contents[20])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[20][0], contents[20][1], contents[20][2])
     elif a == "20":
-        text = "Information about the game you have selected: %s" % (contents[21])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[21][0], contents[21][1], contents[21][2])
     elif a == "21":
-        text = "Information about the game you have selected: %s" % (contents[22])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[22][0], contents[22][1], contents[22][2])
     elif a == "22":
-        text = "Information about the game you have selected: %s" % (contents[23])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[23][0], contents[23][1], contents[23][2])
     elif a == "23":
-        text = "Information about the game you have selected: %s" % (contents[24])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[24][0], contents[24][1], contents[24][2])
     elif a == "24":
-        text = "Information about the game you have selected: %s" % (contents[25])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[25][0], contents[25][1], contents[25][2])
     elif a == "25":
-        text = "Information about the game you have selected: %s" % (contents[26])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[26][0], contents[26][1], contents[26][2])
     elif a == "26":
-        text = "Information about the game you have selected: %s" % (contents[27])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[27][0], contents[27][1], contents[27][2])
     elif a == "27":
-        text = "Information about the game you have selected: %s" % (contents[28])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[28][0], contents[28][1], contents[28][2])
     elif a == "28":
-        text = "Information about the game you have selected: %s" % (contents[29])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[29][0], contents[29][1], contents[29][2])
     elif a == "29":
-        text = "Information about the game you have selected: %s" % (contents[30])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[30][0], contents[30][1], contents[30][2])
     elif a == "30":
-        text = "Information about the game you have selected: %s" % (contents[31])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[31][0], contents[31][1], contents[31][2])
     elif a == "31":
-        text = "Information about the game you have selected: %s" % (contents[32])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[32][0], contents[32][1], contents[32][2])
     elif a == "32":
-        text = "Information about the game you have selected: %s" % (contents[33])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[33][0], contents[33][1], contents[33][2])
     elif a == "33":
-        text = "Information about the game you have selected: %s" % (contents[34])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[34][0], contents[34][1], contents[34][2])
     elif a == "34":
-        text = "Information about the game you have selected: %s" % (contents[35])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[35][0], contents[35][1], contents[35][2])
     elif a == "35":
-        text = "Information about the game you have selected: %s" % (contents[36])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[36][0], contents[36][1], contents[36][2])
     elif a == "36":
-        text = "Information about the game you have selected: %s" % (contents[37])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[37][0], contents[37][1], contents[37][2])
     elif a == "37":
-        text = "Information about the game you have selected: %s" % (contents[38])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[38][0], contents[38][1], contents[38][2])
     elif a == "38":
-        text = "Information about the game you have selected: %s" % (contents[39])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[39][0], contents[39][1], contents[39][2])
     elif a == "39":
-        text = "Information about the game you have selected: %s" % (contents[40])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[40][0], contents[40][1], contents[40][2])
     elif a == "40":
-        text = "Information about the game you have selected: %s" % (contents[41])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[41][0], contents[41][1], contents[41][2])
     elif a == "41":
-        text = "Information about the game you have selected: %s" % (contents[42])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[42][0], contents[42][1], contents[42][2])
     elif a == "42":
-        text = "Information about the game you have selected: %s" % (contents[43])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[43][0], contents[34][1], contents[43][2])
     elif a == "43":
-        text = "Information about the game you have selected: %s" % (contents[44])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[44][0], contents[44][1], contents[44][2])
     elif a == "44":
-        text = "Information about the game you have selected: %s" % (contents[45])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[45][0], contents[45][1], contents[45][2])
     elif a == "45":
-        text = "Information about the game you have selected: %s" % (contents[46])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[46][0], contents[46][1], contents[46][2])
     elif a == "46":
-        text = "Information about the game you have selected: %s" % (contents[47])
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[47][0], contents[47][1], contents[47][2])
     elif a == "47":
-        text = "Information about the game you have selected: %s" % (contents[48])
-    return (text)
+        text = " Name: %s" \
+               " Year: %s" \
+               " Sales: %s" % (contents[48][0], contents[48][1], contents[48][2])
+    return htmlify ("Title", text)
 
 
 def table():
@@ -324,6 +419,7 @@ def table():
         text += """    </tr>\n"""
     text += """ </table>\n"""
     return htmlify("Title", text)
+
 def tops():
     z = ""
     f = ""
@@ -332,19 +428,7 @@ def tops():
         tops = request.POST['tops']
     else:
         tops = ''
-    if tops == "1":
-        for i in range(1, 49):
-            a += contents[i][2].split()
-        b = sorted(set(a))
-        for i in range(0, 39):
-            c = b[i]
-            for i in range(1, 49):
-                if contents[i][2] == c:
-                    z += """<tr><td>%(z)s</td><td>%(a)s</td><td>%(b)s</td></tr>""" % {"z": contents[i][0],
-                                                                                      "a": contents[i][1],
-                                                                                      "b": contents[i][2]}
-        for j in range(0, 2):
-            f += """<td>%s</td>""" % (contents[0][j])
+
     if tops == "2":
         for i in range(1, 48):
             a += contents[i][1].split()
